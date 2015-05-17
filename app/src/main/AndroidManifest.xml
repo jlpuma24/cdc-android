@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="co.com.script.conciertodeconciertos">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".CDCApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@android:style/Theme.Light.NoTitleBar">
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+             />
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.UserSessionActivity"
+            android:screenOrientation="portrait"
+             />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
+             />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".activity.TermsActivity"
+            android:screenOrientation="portrait"
+             />
+        <activity
+            android:name=".activity.QuestionaryActivity"
+            android:screenOrientation="portrait"
+             />
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".activity.NewsActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+        <activity
+            android:name=".activity.DetailNewActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+        <activity
+            android:name=".activity.AgendaActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+
+    </application>
+
+</manifest>

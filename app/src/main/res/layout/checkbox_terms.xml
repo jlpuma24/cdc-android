@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:layout_marginTop="15dp"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/link_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="@string/link_terms"
+        android:textSize="18sp" />
+
+</FrameLayout>

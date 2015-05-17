@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="@drawable/registro">
+
+    <EditText
+        android:id="@+id/input_mail"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/text_view_background"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF"
+        android:hint="@string/input_emanil" />
+
+    <EditText
+        android:id="@+id/input_cel"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/input_cel"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF"
+        android:background="@drawable/text_view_background"
+        android:layout_above="@+id/check_terms"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:id="@+id/wrapper_terms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/input_cel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/button_register"
+        android:textColor="#FFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="140dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_register"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:id="@+id/check_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/link_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/link_terms_register"
+        android:clickable="true"
+        android:textSize="18sp"
+        android:textColor="#FFF"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/check_terms"
+        android:layout_alignRight="@+id/button_register"
+        android:layout_alignEnd="@+id/button_register"
+        android:layout_alignTop="@+id/check_terms"
+        android:layout_toRightOf="@+id/check_terms"
+        android:layout_toEndOf="@+id/check_terms" />
+
+</RelativeLayout>

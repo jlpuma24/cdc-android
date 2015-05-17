@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="font_first_hour">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="editTextTheme">
+        <item name="colorControlNormal">#FFF</item>
+        <item name="colorControlActivated">#FFF</item>
+        <item name="colorControlHighlight">#FFF</item>
+    </style>
+
+</resources>
