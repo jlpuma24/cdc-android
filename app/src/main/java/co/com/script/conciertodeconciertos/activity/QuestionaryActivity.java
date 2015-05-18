@@ -44,9 +44,13 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionary);
-
         Bundle extras = getIntent().getExtras();
+
+    try{
         questionarySelector = extras.getString(KEY_QUESTIONARY_NUMBER);
+    }catch (NullPointerException e){
+        questionarySelector = ONE;
+    }
 
         String question;
         String[] answers;
@@ -113,9 +117,11 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
 
         for (int i = 0; i < radioButtons.length; i++) {
             radioButtons[i] = new RadioButton(this);
-            radioButtons[i].setText(answers[i]);
+            //TODO - Hardcoded space.
+            radioButtons[i].setText("  "+answers[i]);
             radioButtons[i].setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
             radioButtons[i].setTypeface(type);
+            radioButtons[i].setButtonDrawable(R.drawable.radio_selector);
             radioButtons[i].setTextColor(getResources().getColor(android.R.color.white));
             radioGroup.addView(radioButtons[i]);
         }
