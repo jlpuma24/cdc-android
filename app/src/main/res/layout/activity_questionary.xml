@@ -8,14 +8,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@drawable/registro">
+    android:background="@drawable/fondo_registro">
 
     <TextView
         android:text="¿Pregunta?"
         android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:textColor="#FFF"
+        android:textColor="#efb31f"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
         android:id="@+id/text_title_questionary" />
 
@@ -31,7 +32,11 @@
         android:layout_height="wrap_content"
         android:text="@string/button_send_answer"
         android:textColor="#FFF"
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
+        android:gravity="center|center_vertical"
+        android:textSize="25dp"
         android:id="@+id/button_send_answer"
-        android:background="@drawable/button" />
+        android:background="@drawable/yellow_line" />
 
 </LinearLayout>

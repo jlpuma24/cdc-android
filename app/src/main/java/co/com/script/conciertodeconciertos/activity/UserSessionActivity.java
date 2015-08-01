@@ -55,9 +55,9 @@ public class UserSessionActivity extends Activity implements View.OnClickListene
         findViewById(R.id.button_login).setOnClickListener(this);
         findViewById(R.id.button_register).setOnClickListener(this);
 
-        ((Button) findViewById(R.id.button_login)).setTypeface(type);
-        ((Button) findViewById(R.id.button_register)).setTypeface(type);
-        ((Button) findViewById(R.id.button_facebook)).setTypeface(type);
+        ((Button) findViewById(R.id.button_login)).setTypeface(type,Typeface.BOLD);
+        ((Button) findViewById(R.id.button_register)).setTypeface(type,Typeface.BOLD);
+        ((Button) findViewById(R.id.button_facebook)).setTypeface(type,Typeface.BOLD);
 
         facebookSettings();
     }

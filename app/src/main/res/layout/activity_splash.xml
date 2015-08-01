@@ -9,7 +9,7 @@
         android:layout_centerInParent="true"
         android:gravity="center_horizontal"
         android:id="@+id/bg_splash"
-        android:background="@drawable/splash"
+        android:background="@drawable/splash_app"
         android:orientation="vertical" >
 
     </LinearLayout>

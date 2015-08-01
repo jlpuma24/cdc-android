@@ -1,14 +1,14 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:drawable="@drawable/uncheck"
+        android:drawable="@drawable/btn_unpress"
         android:state_checked="true"
         android:state_pressed="true" />
     <item
-        android:drawable="@drawable/check"
+        android:drawable="@drawable/btn_presionado"
         android:state_pressed="true" />
     <item
-        android:drawable="@drawable/check"
+        android:drawable="@drawable/btn_presionado"
         android:state_checked="true" />
     <item
-        android:drawable="@drawable/uncheck" />
+        android:drawable="@drawable/btn_unpress" />
 </selector>

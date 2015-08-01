@@ -1,12 +1,15 @@
 package co.com.script.conciertodeconciertos.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,6 +18,8 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import co.com.script.conciertodeconciertos.R;
+import co.com.script.conciertodeconciertos.UserSessionManager;
+import co.com.script.conciertodeconciertos.activity.DetailNewActivity;
 
 /**
  * Created by User on 06/05/2015.
@@ -47,7 +52,7 @@ public class NewsListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
@@ -65,6 +70,9 @@ public class NewsListAdapter extends BaseAdapter {
         TextView smallDescription = (TextView) view
             .findViewById(R.id.small_detail);
 
+        Button buttonViewMore = (Button) view
+            .findViewById(R.id.button_ver_mas);
+
         final ProgressBar progressBarPhoto = (ProgressBar) view
                 .findViewById(R.id.progressBarPhoto);
 
@@ -72,6 +80,28 @@ public class NewsListAdapter extends BaseAdapter {
         smallDescription.setTypeface(type);
         //TODO harcoded bullet icon, move to string after test.
         labTitle.setText("\u2022  " + mTitles[position]);
+
+        buttonViewMore.setText(mTitles[position]);
+        buttonViewMore.setTypeface(type, Typeface.BOLD);
+
+        buttonViewMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserSessionManager.setSelectedNews(mContext, String.valueOf(position));
+                mContext.startActivity(new Intent(mContext, DetailNewActivity.class));
+                ((Activity) mContext).finish();
+            }
+        });
+
+        imgLogo.setClickable(true);
+        imgLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserSessionManager.setSelectedNews(mContext, String.valueOf(position));
+                mContext.startActivity(new Intent(mContext, DetailNewActivity.class));
+                ((Activity) mContext).finish();
+            }
+        });
 
         Picasso.with(mContext)
                 .load(mPictures[position])

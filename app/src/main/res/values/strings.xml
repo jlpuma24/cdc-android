@@ -3,7 +3,7 @@
     <string name="facebook_app_id">829824353738031</string>
 
     <!--APP NAME-->
-    <string name="app_name">Concierto De Conciertos</string>
+    <string name="app_name">En Concierto</string>
 
     <!--GENERAL-->
     <string name="hello_world">Hello world!</string>
@@ -29,16 +29,17 @@
     <string name="error_no_answer">Debes seleccionar una respuesta</string>
 
     <!--USER SESSION ACTIVITY-->
-    <string name="button_register">Registrarse</string>
+    <string name="button_register">Registro</string>
     <string name="button_login">Iniciar Sesión</string>
     <string name="button_facebook">Ingresar con Facebook</string>
 
     <!--LOGIN ACTIVITY-->
-    <string name="hint_email">Correo</string>
+    <string name="hint_email">Para ingresar escribe tu correo</string>
 
     <!--REGISTER ACTIVITY-->
-    <string name="input_emanil">Correo</string>
-    <string name="input_cel">Celular</string>
+    <string name="input_emanil">Tu Correo</string>
+    <string name="input_cel">Tu Número</string>
+    <string name="ingresar">Ingresar</string>
     <string name="link_terms">Para continuar con esta accion, es necesario aceptar <u>Términos y condiciones</u></string>
     <string name="link_terms_register">Aceptar <u>Términos y condiciones</u></string>
 
@@ -47,12 +48,8 @@
     <string name="button_send_answer">Enviar</string>
     <string name="pregunta_uno">¿Cual es la posición de tú boleta?</string>
     <string-array name="respuestas_uno">
-        <item>Cancha especial</item>
-        <item>Cancha general</item>
-        <item>Occidental</item>
-        <item>Oriental</item>
-        <item>Oriental baja</item>
-        <item>Norte alta</item>
+        <item>Platino</item>
+        <item>VIP</item>
     </string-array>
 
     <string name="pregunta_dos">¿Cual artista te gutaría conocer?</string>
@@ -86,5 +83,8 @@
     <string name="loader_registro">Registrando, por favor espere..</string>
     <string name="loader_login">Iniciando sesión, por favor espere..</string>
     <string name="lorem_impsum_breve">Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore lore...</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="API_KEY">AIzaSyAtO8YgqUBMKKNYVT0YFmB6H2yF8ashSus</string>
 
 </resources>

@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:scrollbars="none"
-        android:background="#272727"
+        android:background="#7a7a79"
         android:divider="@drawable/separator"
         android:choiceMode="singleChoice"
         android:listSelector="@drawable/list_item_separator_background"

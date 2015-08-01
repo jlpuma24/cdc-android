@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/swipe"
+        android:clipToPadding="false"
+        android:splitMotionEvents="false"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <!-- Bottom View Start-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="#66ddff00"
+            android:id="@+id/bottom_wrapper"
+            android:layout_width="match_parent"
+            android:weightSum="1"
+            android:layout_height="match_parent">
+            <!--What you want to show-->
+
+            <EditText
+                android:id="@+id/et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click for open"
+                android:id="@+id/button" />
+
+        </LinearLayout>
+        <!-- Bottom View End-->
+
+        <!-- Surface View Start -->
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--What you want to show in SurfaceView-->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sending..."
+                android:textColor="#000"
+                android:id="@+id/textView7" />
+
+
+
+        </LinearLayout>
+        <!-- Surface View End -->
+    </com.daimajia.swipe.SwipeLayout>
+
+</LinearLayout>

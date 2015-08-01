@@ -1,6 +1,7 @@
 package co.com.script.conciertodeconciertos.fragments;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import co.com.script.conciertodeconciertos.R;
 import co.com.script.conciertodeconciertos.UserSessionManager;
 import co.com.script.conciertodeconciertos.activity.DetailNewActivity;
@@ -27,6 +30,10 @@ public class FragmentNewsList extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_news_list,
                 container, false);
+
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), getActivity().getResources().getString(R.string.rc_light));
+
+        ((TextView) view.findViewById(R.id.image_banner)).setTypeface(type,Typeface.BOLD);
 
         ((ListView) view.findViewById(R.id.listViewNews)).setAdapter(new NewsListAdapter(getActivity(),
                 ApplicationConstants.getAnnouncments(), ApplicationConstants.getPhotos()));

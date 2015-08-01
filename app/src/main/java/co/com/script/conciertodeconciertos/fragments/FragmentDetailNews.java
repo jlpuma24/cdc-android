@@ -1,5 +1,6 @@
 package co.com.script.conciertodeconciertos.fragments;
 
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,11 +32,14 @@ public class FragmentDetailNews extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_detail,
                 container, false);
 
-        Typeface type = Typeface.createFromAsset(getActivity().getAssets(),getActivity().getResources().getString(R.string.rc_bold));
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), getActivity().getResources().getString(R.string.rc_light));
 
-        ((TextView) view.findViewById(R.id.newsTitle)).setTypeface(type);
-        ((TextView) view.findViewById(R.id.newsTitle)).setText(ApplicationConstants.getAnnouncments()[UserSessionManager.getPositionOfSelectedNews(getActivity())]);
+        TextView newsTitle = ((TextView) view.findViewById(R.id.newsTitle));
 
+        newsTitle.setTypeface(type, Typeface.BOLD);
+        newsTitle.setText(ApplicationConstants.getAnnouncments()[UserSessionManager.getPositionOfSelectedNews(getActivity())]);
+
+        newsTitle.setPaintFlags(newsTitle.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         Picasso.with(getActivity())
                 .load(ApplicationConstants.getPhotos()[UserSessionManager.getPositionOfSelectedNews(getActivity())])

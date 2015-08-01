@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/iniciosesion"
+    android:background="@drawable/back_ingreso"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -19,22 +19,25 @@
         android:textColor="#FFF"
         android:textColorHint="#FFF"
         android:background="@drawable/text_view_background"
+        android:layout_marginBottom="96dp"
         android:layout_above="@+id/button_login"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="70dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:text="@string/button_login"
+        android:background="@drawable/red_line"
+        android:text="@string/ingresar"
+        android:textSize="28dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="199dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"

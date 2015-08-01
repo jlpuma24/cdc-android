@@ -120,6 +120,7 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
             //TODO - Hardcoded space.
             radioButtons[i].setText("  "+answers[i]);
             radioButtons[i].setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+            radioButtons[i].setPadding(10, 10, 10, 10);
             radioButtons[i].setTypeface(type);
             radioButtons[i].setButtonDrawable(R.drawable.radio_selector);
             radioButtons[i].setTextColor(getResources().getColor(android.R.color.white));
