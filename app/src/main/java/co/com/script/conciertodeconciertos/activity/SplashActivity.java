@@ -30,6 +30,7 @@ import co.com.script.conciertodeconciertos.UserSessionManager;
 import co.com.script.conciertodeconciertos.VolleySingleton;
 import co.com.script.conciertodeconciertos.helpers.DatabaseHelper;
 import co.com.script.conciertodeconciertos.helpers.DialogHelper;
+import co.com.script.conciertodeconciertos.helpers.NetworkHelper;
 
 
 public class SplashActivity extends Activity {
@@ -38,7 +39,6 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
         final int SPLASH_DISPLAY_LENGTH = 3000;
 
         new Handler().postDelayed(new Runnable() {
@@ -49,6 +49,8 @@ public class SplashActivity extends Activity {
                     SplashActivity.this.startActivity(mainIntent);
                     SplashActivity.this.finish();
                 } else {
+                    NetworkHelper.getNewsList(SplashActivity.this);
+                    NetworkHelper.getAgendaList(SplashActivity.this);
                     Intent mainIntent = new Intent(SplashActivity.this, UserSessionActivity.class);
                     SplashActivity.this.startActivity(mainIntent);
                     SplashActivity.this.finish();

@@ -16,6 +16,7 @@ import co.com.script.conciertodeconciertos.UserSessionManager;
 import co.com.script.conciertodeconciertos.activity.DetailNewActivity;
 import co.com.script.conciertodeconciertos.adapters.NewsListAdapter;
 import co.com.script.conciertodeconciertos.constants.ApplicationConstants;
+import co.com.script.conciertodeconciertos.helpers.DatabaseHelper;
 
 /**
  * Created by User on 06/05/2015.
@@ -35,8 +36,11 @@ public class FragmentNewsList extends Fragment {
 
         ((TextView) view.findViewById(R.id.image_banner)).setTypeface(type,Typeface.BOLD);
 
+        //((ListView) view.findViewById(R.id.listViewNews)).setAdapter(new NewsListAdapter(getActivity(),
+                //ApplicationConstants.getAnnouncments(), ApplicationConstants.getPhotos()));
+
         ((ListView) view.findViewById(R.id.listViewNews)).setAdapter(new NewsListAdapter(getActivity(),
-                ApplicationConstants.getAnnouncments(), ApplicationConstants.getPhotos()));
+                DatabaseHelper.getInstance(getActivity()).getNewsTitleList(), DatabaseHelper.getInstance(getActivity()).getNewsImageList()));
 
         ((ListView) view.findViewById(R.id.listViewNews)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

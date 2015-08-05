@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="url_artistas">http://54.200.219.177:9000/service/artista/list/</string>
+    <string name="url_news">http://54.200.219.177:9000/service/noticia/artista/3/</string>
+    <string name="url_concierto">http://54.200.219.177:9000/service/concierto/list/</string>
 </resources>

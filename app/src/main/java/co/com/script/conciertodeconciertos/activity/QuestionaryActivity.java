@@ -95,6 +95,7 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
                         intent.putExtra(KEY_QUESTIONARY_NUMBER, TWOO);
                         intent.putExtra(FIRST_ANSWER, indexAnswer);
                         startActivity(intent);
+                        finish();
                     } else {
                         sendData(firstAnswer, indexAnswer);
                     }
@@ -142,7 +143,7 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
                 UserSessionManager.KEY_USER_ID);
         try {
             JSONArray artists = new JSONArray();
-            artists.put(artist);
+            artists.put(3);
 
             JSONObject json = new JSONObject();
             json.put("usuario", userId);
@@ -151,6 +152,7 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
 
             Log.i("JSON sended", json.toString());
             volleyPost(url, json);
+
         } catch (JSONException e) {
             Log.e("JSONException", e.toString());
         }
@@ -170,6 +172,7 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
 
                 Intent intent = new Intent(QuestionaryActivity.this, NewsActivity.class);
                 startActivity(intent);
+                finish();
             }
         }, new Response.ErrorListener() {
             @Override

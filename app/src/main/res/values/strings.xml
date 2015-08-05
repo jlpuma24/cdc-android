@@ -40,7 +40,7 @@
     <string name="input_emanil">Tu Correo</string>
     <string name="input_cel">Tu Número</string>
     <string name="ingresar">Ingresar</string>
-    <string name="link_terms">Para continuar con esta accion, es necesario aceptar <u>Términos y condiciones</u></string>
+    <string name="link_terms">Para continuar con esta accion, es necesario aceptar <u>Términos y condiciones</u>\ne introducir tu numero de telefono</string>
     <string name="link_terms_register">Aceptar <u>Términos y condiciones</u></string>
 
 

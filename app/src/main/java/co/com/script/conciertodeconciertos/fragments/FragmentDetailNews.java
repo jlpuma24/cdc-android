@@ -17,6 +17,7 @@ import com.squareup.picasso.Picasso;
 import co.com.script.conciertodeconciertos.R;
 import co.com.script.conciertodeconciertos.UserSessionManager;
 import co.com.script.conciertodeconciertos.constants.ApplicationConstants;
+import co.com.script.conciertodeconciertos.helpers.DatabaseHelper;
 
 /**
  * Created by User on 07/05/2015.
@@ -37,12 +38,15 @@ public class FragmentDetailNews extends Fragment {
         TextView newsTitle = ((TextView) view.findViewById(R.id.newsTitle));
 
         newsTitle.setTypeface(type, Typeface.BOLD);
-        newsTitle.setText(ApplicationConstants.getAnnouncments()[UserSessionManager.getPositionOfSelectedNews(getActivity())]);
+        //newsTitle.setText(ApplicationConstants.getAnnouncments()[UserSessionManager.getPositionOfSelectedNews(getActivity())]);
+
+        newsTitle.setText(DatabaseHelper.getInstance(getActivity()).getNewsTitleList()[UserSessionManager.getPositionOfSelectedNews(getActivity())]);
 
         newsTitle.setPaintFlags(newsTitle.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         Picasso.with(getActivity())
-                .load(ApplicationConstants.getPhotos()[UserSessionManager.getPositionOfSelectedNews(getActivity())])
+                //.load(ApplicationConstants.getPhotos()[UserSessionManager.getPositionOfSelectedNews(getActivity())])
+                .load(DatabaseHelper.getInstance(getActivity()).getNewsImageList()[UserSessionManager.getPositionOfSelectedNews(getActivity())])
                 .into((ImageView) view.findViewById(R.id.imageViewIcon), new Callback() {
                     @Override
                     public void onSuccess() {
