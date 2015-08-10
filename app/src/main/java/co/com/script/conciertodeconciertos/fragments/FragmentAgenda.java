@@ -1,11 +1,14 @@
 package co.com.script.conciertodeconciertos.fragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import co.com.script.conciertodeconciertos.R;
 import co.com.script.conciertodeconciertos.adapters.AgendaListAdapter;
 import co.com.script.conciertodeconciertos.constants.ApplicationConstants;
@@ -24,6 +27,10 @@ public class FragmentAgenda extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_agenda,
                 container, false);
+
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), getActivity().getResources().getString(R.string.rc_light));
+
+        ((TextView) view.findViewById(R.id.image_banner)).setTypeface(type,Typeface.BOLD);
 
         /*((ListView) view.findViewById(R.id.listViewAgenda)).setAdapter(new AgendaListAdapter(getActivity(),
                 ApplicationConstants.getAgendaTitles(),ApplicationConstants.getFirstHourTitles(),

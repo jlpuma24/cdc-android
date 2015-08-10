@@ -26,13 +26,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/iconMenu"
-            android:layout_marginLeft="10dp"
             android:clickable="true"
+            android:padding="10dp"
             android:onClick="openDrawerMenu"
             android:src="@drawable/btn_menulateral"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true" />
     </RelativeLayout>
 
     <LinearLayout

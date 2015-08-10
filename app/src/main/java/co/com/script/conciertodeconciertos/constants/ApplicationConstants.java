@@ -19,6 +19,27 @@ public class ApplicationConstants {
     private static final String[] firstHourTitles =  new String[]{"05","07","09","10","11","11","12"};
     private static final String[] secondHourTitles = new String[]{"00","30","00","30","00","30","00"};
     private static final String[] indicativeTitles = new String[]{"PM","PM","PM","PM","PM","PM","PM"};
+    private static final String[] songsTitles = new String[]{"Love Who Loves You Back",
+                                                             "Feel It All",
+                                                             "Monsoon",
+                                                             "Run,Run,Run",
+                                                             "Girl Got A Gun",
+                                                             "Durch den Monsun",
+                                                             "Stormy Weather",
+                                                             "The Heart Get No Sleep",
+                                                             "Kings of Suburbia",
+                                                             "Invaded"};
+
+    private static final String[] codeSogs = new String[] {"4YwI0dlCMhFzyDr7FqChwv",
+                                                           "5RJkJXE6hGJ2GYpCxcPb3d",
+                                                           "6PvYTAWLe9BfPAfjrwSTVF",
+                                                           "5ja8I8RPnrXqpryA9vDTru",
+                                                           "4yZ2is5UBoeeBcvTewMjDl",
+                                                           "3FcNvS4vZiEaZOpjr8H4Qm",
+                                                           "0vovjIZkKcAR6R8xTWXa07",
+                                                           "7m5cKfXcP2jBo7VL3HgkUe",
+                                                           "JevZJIaeLQuAj0NtaauvJ",
+                                                           "60bexzfEHGi41JNmea6XzB"};
 
     public static String[] getTextListOfMenu(Context mContext){
 
@@ -54,5 +75,6 @@ public class ApplicationConstants {
     public static String[] getFirstHourTitles(){ return firstHourTitles; }
     public static String[] getSecondHourTitles(){ return secondHourTitles; }
     public static String[] getIndicativeTitles(){ return indicativeTitles; }
-
+    public static String[] getSongsTitles(){ return songsTitles; }
+    public static String[] getCodeSogs(){ return codeSogs; }
 }

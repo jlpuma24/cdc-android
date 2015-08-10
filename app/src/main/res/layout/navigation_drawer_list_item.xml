@@ -9,8 +9,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/box"
-    android:background="#7a7a79"
-    android:padding="25dp" >
+    android:padding="15dp" >
 
     <ImageView
         android:id="@+id/drawerMenuItemImage"

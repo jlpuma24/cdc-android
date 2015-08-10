@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7a7a79"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#7a7a79"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/image_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PLAYLIST"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="#FFF"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iconMenu"
+            android:clickable="true"
+            android:padding="10dp"
+            android:onClick="openDrawerMenu"
+            android:src="@drawable/btn_menulateral"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancion_escuchar_anuncio"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="#FFF"
+            android:textSize="15dp"
+            android:id="@+id/textViewAnuncio" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/layoutSpotify"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="SPOTIFY"
+                android:id="@+id/textViewSpotify"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:textSize="25dp"
+                android:drawableLeft="@drawable/spotify_icon"
+                android:layout_gravity="center_horizontal|center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/layoutDeezer"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Deezer"
+                android:id="@+id/textViewDeezer"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:textSize="25dp"
+                android:drawableLeft="@drawable/deezer_icon"
+                android:layout_gravity="center_horizontal|center_vertical" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

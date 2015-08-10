@@ -57,7 +57,7 @@ public class UserSessionActivity extends Activity implements View.OnClickListene
 
         ((Button) findViewById(R.id.button_login)).setTypeface(type,Typeface.BOLD);
         ((Button) findViewById(R.id.button_register)).setTypeface(type,Typeface.BOLD);
-        ((Button) findViewById(R.id.button_facebook)).setTypeface(type,Typeface.BOLD);
+        ((Button) findViewById(R.id.button_facebook)).setTypeface(type, Typeface.BOLD);
 
         facebookSettings();
     }
@@ -120,6 +120,53 @@ public class UserSessionActivity extends Activity implements View.OnClickListene
         request.setParameters(parameters);
         request.executeAsync();
     }
+
+
+    private void volleyFacebookGET(String url, final String mail) {
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        DialogHelper.getInstance(this).createLoadingDialog(progressDialog, getString(R.string.loader_login));
+        DialogHelper.getInstance(this).showDialog(progressDialog);
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    String userId = response.getString("id");
+                    String mail = response.getString("correo");
+                    String cel = response.getString("telefono");
+                    UserSessionManager.login(UserSessionActivity.this, userId, mail, cel);
+
+                    DialogHelper.getInstance(UserSessionActivity.this).stopDialog(progressDialog);
+
+                    startActivity(new Intent(UserSessionActivity.this, NewsActivity.class));
+                    finish();
+
+                } catch (JSONException e) {
+                    DialogHelper.getInstance(UserSessionActivity.this).stopDialog(progressDialog);
+                    Log.e("JSONException", e.toString());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                DialogHelper.getInstance(UserSessionActivity.this).stopDialog(progressDialog);
+                if (error instanceof NoConnectionError) {
+                    Toast.makeText(UserSessionActivity.this,
+                            getString(R.string.error_no_connection), Toast.LENGTH_LONG).show();
+                } else if (error instanceof ServerError) {
+                    NetworkResponse response = error.networkResponse;
+                    if (response != null && response.statusCode == 404) {
+                       sendRegisterData(mail, "");
+                    }
+                } else
+                    Toast.makeText(UserSessionActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        VolleySingleton.getInstance(this).addToRequestQueue(request);
+    }
+
 
     private void createDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -194,8 +241,9 @@ public class UserSessionActivity extends Activity implements View.OnClickListene
                             getString(R.string.error_no_connection), Toast.LENGTH_LONG).show();
                 } else if (error instanceof ServerError) {
                     NetworkResponse response = error.networkResponse;
-                    if (response != null && response.statusCode == 400)
+                    if (response != null && response.statusCode == 400) {
                         Toast.makeText(UserSessionActivity.this, getString(R.string.error_existieng_user), Toast.LENGTH_LONG).show();
+                    }
                 } else
                     Toast.makeText(UserSessionActivity.this, error.toString(), Toast.LENGTH_LONG).show();
             }
@@ -243,8 +291,9 @@ public class UserSessionActivity extends Activity implements View.OnClickListene
                             getString(R.string.error_no_connection), Toast.LENGTH_LONG).show();
                 } else if (error instanceof ServerError) {
                     NetworkResponse response = error.networkResponse;
-                    if (response != null && response.statusCode == 404)
+                    if (response != null && response.statusCode == 404) {
                         Toast.makeText(UserSessionActivity.this, getString(R.string.error_nouser), Toast.LENGTH_LONG).show();
+                    }
                 } else
                     Toast.makeText(UserSessionActivity.this, error.toString(), Toast.LENGTH_LONG).show();
             }
@@ -253,9 +302,29 @@ public class UserSessionActivity extends Activity implements View.OnClickListene
         VolleySingleton.getInstance(this).addToRequestQueue(request);
     }
 
+
+    private void sendRegisterData(String email, String phone) {
+
+            String url = "http://54.200.219.177:9000/service/usuario/list/";
+            JSONObject json = new JSONObject();
+            try {
+                json.put("nombre", email);
+                json.put("password", email);
+                json.put("correo", email);
+                json.put("telefono", phone);
+
+                Log.i("JSON registro", json.toString());
+                volleyPost(url, json);
+            } catch (JSONException e) {
+                Log.e("JSONException", e.toString());
+            }
+
+    }
+
+
     private void attemptLogin(String mail) {
         String url = "http://54.200.219.177:9000/service/usuario/detail/" + mail + "/" + mail + "/";
-        volleyGET(url);
+        volleyFacebookGET(url, mail);
     }
 
     private void attemptRegister(JSONObject jsonResponse) {

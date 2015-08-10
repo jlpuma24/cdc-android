@@ -2,7 +2,6 @@ package co.com.script.conciertodeconciertos.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -45,7 +44,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_activity);
 
         Typeface type = Typeface.createFromAsset(getAssets(),getResources().getString(R.string.rc_light));
 

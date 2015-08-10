@@ -36,9 +36,6 @@ public class FragmentNewsList extends Fragment {
 
         ((TextView) view.findViewById(R.id.image_banner)).setTypeface(type,Typeface.BOLD);
 
-        //((ListView) view.findViewById(R.id.listViewNews)).setAdapter(new NewsListAdapter(getActivity(),
-                //ApplicationConstants.getAnnouncments(), ApplicationConstants.getPhotos()));
-
         ((ListView) view.findViewById(R.id.listViewNews)).setAdapter(new NewsListAdapter(getActivity(),
                 DatabaseHelper.getInstance(getActivity()).getNewsTitleList(), DatabaseHelper.getInstance(getActivity()).getNewsImageList()));
 

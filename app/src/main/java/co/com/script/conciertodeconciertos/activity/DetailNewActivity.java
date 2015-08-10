@@ -49,6 +49,14 @@ public class DetailNewActivity extends FragmentActivity implements BaseActivityM
                             finish();
                             break;
 
+                    case 3: startActivity(new Intent(getApplicationContext(),PlayListActivity.class));
+                        finish();
+                        break;
+
+                    case 4: startActivity(new Intent(getApplicationContext(),ColorMomentActivity.class));
+                        finish();
+                        break;
+
                     case 5: createDialog();
                             break;
                 }

@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'lib/armeabi/libdeezer.so'
+    }
 }
 
 repositories {
@@ -29,6 +33,7 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':deezer-sdk')
     compile 'com.android.support:recyclerview-v7:22.1.1'
     compile 'com.android.support:support-v4:22.1.1'
     compile 'com.google.android.gms:play-services:7.3.0'
