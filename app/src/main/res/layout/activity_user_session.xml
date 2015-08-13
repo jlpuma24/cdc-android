@@ -6,55 +6,56 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/splash_app">
+    android:background="@drawable/splash_background">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:gravity="bottom"
+        android:gravity="top"
+        android:layout_margin="20dp"
         android:layout_height="fill_parent"
         >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView4"
+            android:src="@drawable/title_app"
+            android:layout_gravity="center_horizontal" />
 
         <Button
             android:id="@+id/button_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
             android:gravity="center|center_vertical"
-            android:paddingBottom="15dp"
-            android:paddingTop="10dp"
-            android:textSize="25dp"
             android:textColor="@android:color/white"
-            android:background="@drawable/red_line"
-            android:text="@string/button_login" />
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_iniciar_sesion_app"
+             />
 
         <Button
             android:id="@+id/button_register"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_height="45dp"
             android:gravity="center|center_vertical"
-            android:textSize="25dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="15dp"
             android:layout_below="@+id/button_login"
             android:textColor="@android:color/white"
-            android:background="@drawable/blue_line"
-            android:text="@string/button_register" />
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_registro_app"
+             />
 
         <Button
             android:id="@+id/button_facebook"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="15dp"
+            android:layout_height="45dp"
             android:gravity="center|center_vertical"
             android:textSize="25dp"
+            android:layout_marginBottom="20dp"
             android:textColor="@android:color/white"
             android:layout_below="@id/button_register"
-            android:background="@drawable/yellow_line"
-            android:text="@string/button_facebook"/>
+            android:background="@drawable/btn_facebook"
+            />
 
         <ProgressBar
             android:id="@+id/progress_usersession"
@@ -64,6 +65,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:visibility="gone" />
+
     </LinearLayout>
 
 

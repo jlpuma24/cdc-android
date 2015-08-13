@@ -75,7 +75,7 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
 
         Typeface type = Typeface.createFromAsset(getAssets(),getResources().getString(R.string.rc_light));
         ((TextView) findViewById(R.id.text_title_questionary)).setText(question);
-        ((TextView) findViewById(R.id.text_title_questionary)).setTypeface(type);
+        ((TextView) findViewById(R.id.text_title_questionary)).setTypeface(type, Typeface.BOLD);
         ((Button)findViewById(R.id.button_send_answer)).setTypeface(type);
         createRadioButton(answers);
         findViewById(R.id.button_send_answer).setOnClickListener(this);
@@ -91,11 +91,7 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
 
                 if (indexAnswer > 0) {
                     if (questionarySelector.equals(ONE)) {
-                        Intent intent = new Intent(QuestionaryActivity.this, QuestionaryActivity.class);
-                        intent.putExtra(KEY_QUESTIONARY_NUMBER, TWOO);
-                        intent.putExtra(FIRST_ANSWER, indexAnswer);
-                        startActivity(intent);
-                        finish();
+                        sendData(firstAnswer, indexAnswer);
                     } else {
                         sendData(firstAnswer, indexAnswer);
                     }
@@ -122,9 +118,9 @@ public class QuestionaryActivity extends Activity implements View.OnClickListene
             radioButtons[i].setText("  "+answers[i]);
             radioButtons[i].setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
             radioButtons[i].setPadding(10, 10, 10, 10);
-            radioButtons[i].setTypeface(type);
+            radioButtons[i].setTypeface(type, Typeface.BOLD);
             radioButtons[i].setButtonDrawable(R.drawable.radio_selector);
-            radioButtons[i].setTextColor(getResources().getColor(android.R.color.white));
+            radioButtons[i].setTextColor(getResources().getColor(R.color.gray_app));
             radioGroup.addView(radioButtons[i]);
         }
     }

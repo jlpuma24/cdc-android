@@ -2,10 +2,14 @@ package co.com.script.conciertodeconciertos.activity;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +26,8 @@ import com.deezer.sdk.player.AlbumPlayer;
 import com.deezer.sdk.player.exception.TooManyPlayersExceptions;
 import com.deezer.sdk.player.networkcheck.WifiAndMobileNetworkStateChecker;
 
+import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
+
 import java.util.List;
 
 import co.com.script.conciertodeconciertos.CDCApplication;
@@ -35,6 +41,8 @@ public class DeezerActivity extends Activity {
     private DeezerConnect deezerConnect = null;
     private String applicationID = "162635";
     private AlbumPlayer albumPlayer = null;
+    private AudioManager audioManager = null;
+    private Boolean isStopped = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +55,53 @@ public class DeezerActivity extends Activity {
         ((TextView) findViewById(R.id.textViewAnuncioAlbum)).setTypeface(type, Typeface.BOLD);
         ((TextView) findViewById(R.id.textViewTituloAlbum)).setTypeface(type, Typeface.BOLD);
 
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        DiscreteSeekBar dis = (DiscreteSeekBar) findViewById(R.id.seekbar);
+        dis.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
+            @Override
+            public void onProgressChanged(DiscreteSeekBar discreteSeekBar, int progress, boolean b) {
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
+                        progress, 0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(DiscreteSeekBar discreteSeekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(DiscreteSeekBar discreteSeekBar) {
+
+            }
+        });
+
+        ((ImageButton) findViewById(R.id.play)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play();
+            }
+        });
+
+        ((ImageButton) findViewById(R.id.stop)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stop();
+            }
+        });
+
+        ((ImageButton) findViewById(R.id.pause)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pause();
+            }
+        });
 
         deezerConnect = new DeezerConnect(this, applicationID);
         String[] permissions = new String[] {
                 Permissions.BASIC_ACCESS,
                 Permissions.MANAGE_LIBRARY,
                 Permissions.LISTENING_HISTORY };
+
 
         DialogListener listener = new DialogListener() {
 
@@ -92,5 +141,25 @@ public class DeezerActivity extends Activity {
         albumPlayer.release();
         startActivity(new Intent(this, PlayListActivity.class));
         finish();
+    }
+
+    public void play(){
+        if (!isStopped)
+            albumPlayer.play();
+        else {
+            long albumId = 8619748;
+            albumPlayer.playAlbum(albumId);
+        }
+
+    }
+
+    public void stop(){
+        albumPlayer.stop();
+        isStopped = true;
+    }
+
+    public void pause(){
+        albumPlayer.pause();
+        isStopped = false;
     }
 }

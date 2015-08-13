@@ -44,6 +44,10 @@ public class AgendaActivity extends FragmentActivity implements BaseActivityMeth
                         finish();
                         break;
 
+                    case 1: startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                        finish();
+                        break;
+
                     case 3: startActivity(new Intent(getApplicationContext(),PlayListActivity.class));
                         finish();
                         break;

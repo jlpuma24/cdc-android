@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/fondo_terms"
+    android:background="@drawable/splash_background"
     android:layout_height="match_parent">
 
     <FrameLayout
@@ -16,6 +16,9 @@
             android:text="@string/text_terms"
             android:layout_width="match_parent"
             android:textColor="#FFF"
+            android:gravity="center"
+            android:background="#aaaaaa"
+            android:padding="5dp"
             android:layout_height="wrap_content" />
 
     </FrameLayout>

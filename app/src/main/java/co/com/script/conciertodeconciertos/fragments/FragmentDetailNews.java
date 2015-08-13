@@ -42,7 +42,7 @@ public class FragmentDetailNews extends Fragment {
 
         newsTitle.setText(DatabaseHelper.getInstance(getActivity()).getNewsTitleList()[UserSessionManager.getPositionOfSelectedNews(getActivity())]);
 
-        newsTitle.setPaintFlags(newsTitle.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        //newsTitle.setPaintFlags(newsTitle.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         Picasso.with(getActivity())
                 //.load(ApplicationConstants.getPhotos()[UserSessionManager.getPositionOfSelectedNews(getActivity())])

@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#7a7a79"
+        android:background="#105f88"
         android:orientation="horizontal" >
 
         <TextView

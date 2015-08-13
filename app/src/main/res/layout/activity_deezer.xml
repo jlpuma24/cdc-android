@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7a7a79"
-    android:orientation="vertical" >
+    android:background="@drawable/fondo_playlist"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#7a7a79"
+        android:background="#105f88"
         android:orientation="horizontal" >
 
         <TextView
@@ -18,7 +19,6 @@
             android:gravity="center"
             android:textSize="20dp"
             android:textColor="#FFF"
-            android:drawableLeft="@drawable/ic_casestudy_nav_deezer"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true" />
@@ -34,22 +34,32 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_gravity="center_horizontal">
+        android:gravity="top"
+        android:layout_gravity="top">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Estas disfrutando del album: "
-            android:layout_margin="10dp"
+            android:text="Tokio Hotel"
+            android:layout_margin="5dp"
             android:textSize="20dp"
             android:textColor="#FFF"
             android:id="@+id/textViewAnuncioAlbum"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:textColor="#FFF"
+            android:text="Kings of Suburbia"
+            android:id="@+id/textViewTituloAlbum"
             android:layout_gravity="center_horizontal" />
 
         <ImageView
@@ -60,15 +70,74 @@
             android:id="@+id/imageView2"
             android:layout_gravity="center_horizontal" />
 
-        <TextView
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:textSize="20dp"
-            android:textColor="#FFF"
-            android:text="Kings of Suburbia"
-            android:id="@+id/textViewTituloAlbum"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_stop"
+                android:background="@null"
+                android:layout_margin="20dp"
+                android:id="@+id/stop" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_play"
+                android:background="@null"
+                android:layout_margin="20dp"
+                android:id="@+id/play" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_pause"
+                android:background="@null"
+                android:layout_margin="20dp"
+                android:id="@+id/pause" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/down_volume"
+                android:id="@+id/imageView6" />
+
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dsb_min="0"
+                app:dsb_max="15"
+                android:id="@+id/seekbar"
+                app:dsb_progressColor="#105f88"
+                app:dsb_trackColor="#FFF"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/imageView7"
+                android:layout_toRightOf="@+id/imageView6"
+                android:layout_toEndOf="@+id/imageView6" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/imageView7"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/up_volume"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -1,9 +1,10 @@
 package co.com.script.conciertodeconciertos.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,15 +21,19 @@ import com.spotify.sdk.android.player.Player;
 import com.spotify.sdk.android.player.PlayerNotificationCallback;
 import com.spotify.sdk.android.player.PlayerState;
 import com.spotify.sdk.android.player.Spotify;
+import com.viewpagerindicator.CirclePageIndicator;
+import com.viewpagerindicator.TitlePageIndicator;
 
 import co.com.script.conciertodeconciertos.R;
+import co.com.script.conciertodeconciertos.adapters.MyFragmentPagerAdapter;
 import co.com.script.conciertodeconciertos.adapters.PlayListAdapter;
 import co.com.script.conciertodeconciertos.constants.ApplicationConstants;
+import co.com.script.conciertodeconciertos.fragments.ScreenSlidePageFragment;
 
 /**
  * Created by User on 18/05/2015.
  */
-public class SpotifyActivity extends Activity implements
+public class SpotifyActivity extends FragmentActivity implements
         PlayerNotificationCallback, ConnectionStateCallback {
 
     private static final String CLIENT_ID = "4e537ad179744dbeb6d9b6674777e17b";
@@ -36,6 +41,7 @@ public class SpotifyActivity extends Activity implements
     private static final int REQUEST_CODE = 1337;
     private Config playerConfig;
     private Player mPlayer;
+    private ViewPager pager = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,16 +70,44 @@ public class SpotifyActivity extends Activity implements
             if (response.getType() == AuthenticationResponse.Type.TOKEN) {
                 playerConfig = new Config(this, response.getAccessToken(), CLIENT_ID);
                 ListView lv = (ListView) findViewById(R.id.listViewSongs);
+                init();
                 lv.setAdapter(new PlayListAdapter(SpotifyActivity.this, ApplicationConstants.getSongsTitles()));
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         //Toast.makeText(SpotifyActivity.this, "clicked: "+String.valueOf(position),Toast.LENGTH_LONG).show();
                         openSong(ApplicationConstants.getCodeSogs()[position]);
+
                     }
                 });
             }
         }
+    }
+
+    private void init(){
+
+        pager = (ViewPager) this.findViewById(R.id.pager);
+
+        // Create an adapter with the fragments we show on the ViewPager
+        MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(
+                getSupportFragmentManager());
+
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[0], 0));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[1], 1));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[2], 2));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[3], 3));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[4], 4));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[5], 5));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[6], 6));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[7], 7));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[8], 8));
+        adapter.addFragment(ScreenSlidePageFragment.newInstance(ApplicationConstants.getSongsTitles()[9], 9));
+
+        pager.setAdapter(adapter);
+
+        CirclePageIndicator titleIndicator = (CirclePageIndicator)findViewById(R.id.titles);
+
+        titleIndicator.setViewPager(pager);
     }
 
     public void openSong(final String song){
@@ -91,8 +125,12 @@ public class SpotifyActivity extends Activity implements
                 Log.e("MainActivity", "Could not initialize player: " + throwable.getMessage());
             }
         });
-
     }
+
+    public void stop(){
+        mPlayer.pause();
+    }
+
 
     @Override
     public void onLoggedIn() {

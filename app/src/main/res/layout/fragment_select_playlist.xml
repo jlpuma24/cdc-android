@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7a7a79"
+    android:background="@drawable/fondo_playlist"
     android:orientation="vertical" >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#7a7a79"
+        android:background="#105f88"
         android:orientation="horizontal" >
 
         <TextView
@@ -53,48 +53,49 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancion_escuchar_anuncio"
+            android:text="Importa tus playlist desde:"
             android:gravity="center"
             android:layout_gravity="center"
             android:textColor="#FFF"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:id="@+id/textViewAnuncio" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/layoutSpotify"
-            android:layout_weight="1">
-
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/layoutDeezer">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="SPOTIFY"
-                android:id="@+id/textViewSpotify"
+                android:layout_height="100dp"
+                android:id="@+id/textViewDeezer"
                 android:gravity="center"
                 android:textColor="#FFF"
                 android:textSize="25dp"
-                android:drawableLeft="@drawable/spotify_icon"
+                android:background="@drawable/btn_deezer"
                 android:layout_gravity="center_horizontal|center_vertical" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/layoutDeezer"
-            android:layout_weight="1">
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutSpotify">
+
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Deezer"
-                android:id="@+id/textViewDeezer"
+                android:layout_height="100dp"
+                android:id="@+id/textViewSpotify"
                 android:gravity="center"
                 android:textColor="#FFF"
                 android:textSize="25dp"
-                android:drawableLeft="@drawable/deezer_icon"
+                android:background="@drawable/btn_spotify"
                 android:layout_gravity="center_horizontal|center_vertical" />
+
         </LinearLayout>
 
     </LinearLayout>

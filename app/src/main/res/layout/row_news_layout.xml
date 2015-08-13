@@ -64,7 +64,10 @@
         android:paddingBottom="15dp"
         android:paddingTop="8dp"
         android:paddingRight="5dp"
+        android:paddingLeft="10dp"
         android:textColor="#fff"
+        android:gravity="left"
+        android:text="Hola!"
         android:drawableRight="@drawable/btn_vermas"
         android:background="@drawable/btn_list_view"
         android:id="@+id/button_ver_mas" />

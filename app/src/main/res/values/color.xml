@@ -6,4 +6,5 @@
     <color name="text_main">#333</color>
     <color name="text_second">#666</color>
     <color name="player_background">#Fccc</color>
+    <color name="gray_app">#a4acb7</color>
 </resources>

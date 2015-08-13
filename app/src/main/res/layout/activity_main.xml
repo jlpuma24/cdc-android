@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7a7a79"
+    android:background="@drawable/fondo_playlist"
     android:orientation="vertical" >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#7a7a79"
+        android:background="#105f88"
         android:orientation="horizontal" >
 
         <TextView
@@ -18,7 +18,6 @@
             android:gravity="center"
             android:textSize="20dp"
             android:textColor="#FFF"
-            android:drawableLeft="@drawable/ic_spotify_large_icon"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true" />
@@ -39,12 +38,37 @@
         android:layout_margin="10dp"
         android:orientation="vertical" >
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight="6"
+            android:layout_height="0dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/titles"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancion_escuchar"
             android:id="@+id/textViewAnuncio"
             android:textSize="15dp"
+            android:visibility="gone"
             android:textColor="#FFF"
             android:gravity="center"
             android:layout_margin="10dp"
@@ -58,6 +82,7 @@
             android:divider="@android:color/transparent"
             android:scrollbars="none"
             android:dividerHeight="25.0sp"
+            android:visibility="gone"
             android:listSelector="@drawable/list_item_separator_background"
             android:id="@+id/listViewSongs" />
 

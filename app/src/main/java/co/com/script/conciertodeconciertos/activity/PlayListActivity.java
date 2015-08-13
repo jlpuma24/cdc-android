@@ -46,6 +46,10 @@ public class PlayListActivity extends FragmentActivity implements BaseActivityMe
                         finish();
                         break;
 
+                    case 1: startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                        finish();
+                        break;
+
                     case 2: startActivity(new Intent(getApplicationContext(),AgendaActivity.class));
                         finish();
                         break;
