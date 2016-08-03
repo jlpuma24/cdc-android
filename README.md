@@ -1,2 +1,2 @@
-# cdc-android
-Backup for cdc-android app
+# Concert of Concerts application.
+Concert of Concerts Android application
